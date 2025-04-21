@@ -728,11 +728,9 @@ class 类_CTA引擎(基础引擎):
     def 加载策略类(self) -> None:
         """加载策略类文件"""
         路径1 = Path(__file__).parent.joinpath("策略文件夹")
-        self.记录日志(f'路径1：{路径1}')
         self.从目录加载策略类(路径1, "xmpy_ctastrategy.策略文件夹")
 
         路径2 = Path.cwd().joinpath("策略文件夹")
-        self.记录日志(f'路径2：{路径2}')
         self.从目录加载策略类(路径2, "策略文件夹")
 
     def 从目录加载策略类(self, 路径: Path, 模块前缀: str = "") -> None:
