@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Type
 import importlib_metadata
 from xmpy.包_交易核心.模块_应用 import 类_基础应用
-from xmpy.包_交易核心.模块_对象 import 类_行情数据,类_K线数据,类_成交数据,类_委托数据
+from xmpy.包_交易核心.模块_对象 import 类_行情数据,类_K线数据,类_成交数据,类_订单数据
 from xmpy.包_交易核心.模块_常数 import 类_方向,类_开平
 from xmpy.包_交易核心.模块_工具 import 类_K线生成器, 类_数组管理器
 

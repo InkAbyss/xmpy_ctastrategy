@@ -4,7 +4,7 @@ from xmpy_ctastrategy import (
     类_行情数据,
     类_K线数据,
     类_成交数据,
-    类_委托数据,
+    类_订单数据,
     类_K线生成器,
     类_数组管理器
 )
@@ -22,10 +22,6 @@ class 示例策略_基础教程(类_CTA策略模板):
     参数列表 = ["初始手数"]
     变量列表 = ["计数"]
 
-    def __init__(self, 类_CTA引擎, 策略名称, 合约标识, setting):
-        """"""
-        super().__init__(类_CTA引擎, 策略名称, 合约标识, setting)
-
     def 初始化回调(self):
         self.记录日志("策略初始化回调")
 
@@ -38,20 +34,20 @@ class 示例策略_基础教程(类_CTA策略模板):
     def 行情回调(self, tick: 类_行情数据):
         self.计数 += 1
         self.记录日志(f'tick当前计数：{self.计数}')
-        if self.计数 == 40:
+        if self.计数 == 30:
             self.买入开仓(tick.卖一价,self.初始手数)
-        elif self.计数 == 50:
+        elif self.计数 == 40:
             self.卖出平仓(tick.买一价, self.初始手数)
 
-        elif self.计数 == 60:
+        elif self.计数 == 50:
             self.卖出开仓(tick.买一价, self.初始手数)
-        elif self.计数 == 70:
+        elif self.计数 == 60:
             self.买入开仓(tick.卖一价,self.初始手数)
 
     def K线回调(self, K线: 类_K线数据):
         self.记录日志(f'K线回调：{K线}')
 
-    def 委托回调(self, 委托: 类_委托数据):
+    def 委托回调(self, 委托: 类_订单数据):
         self.记录日志(f'委托回报：{委托}')
 
     def 成交回调(self, 成交: 类_成交数据):
