@@ -297,7 +297,7 @@ class 类_CTA策略模板(ABC):
 
     def 加载Tick(self, 天数: int) -> None:
         """加载历史Tick数据"""
-        Tick列表 = self.CTA引擎.加载Tick(self.合约_交易所, 天数, self.行情回调)
+        Tick列表 = self.CTA引擎.加载Tick数据(self.合约_交易所, 天数, self.行情回调)
 
         for Tick in Tick列表:
             self.行情回调(Tick)
