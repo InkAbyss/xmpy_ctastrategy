@@ -6,7 +6,6 @@ from xmpy_ctastrategy import (
     类_成交数据,
     类_订单数据,
     类_K线生成器,
-    类_数组管理器
 )
 
 class 示例策略_基础教程(类_CTA策略模板):

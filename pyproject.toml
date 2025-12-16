@@ -31,6 +31,8 @@ requires-python = ">=3.10"
 # dependencies: 项目运行时依赖的第三方包列表
 dependencies = [
     "xmpy>=1.0.0",
+    "pandas",
+    "plotly",
 ]
 # keywords: 关键词列表，用于在PyPI上搜索和分类
 keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]

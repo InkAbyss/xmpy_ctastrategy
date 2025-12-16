@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import Type
-import importlib_metadata
+
 from xmpy.包_交易核心.模块_应用 import 类_基础应用
 from xmpy.包_交易核心.模块_对象 import 类_行情数据,类_K线数据,类_成交数据,类_订单数据
 from xmpy.包_交易核心.模块_常数 import 类_方向,类_开平
@@ -28,7 +28,7 @@ __all__ = [
     "类_CTA策略应用"
 ]
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 class 类_CTA策略应用(类_基础应用):
     """CTA策略交易应用"""
