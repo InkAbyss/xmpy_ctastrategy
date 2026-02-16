@@ -953,7 +953,7 @@ class 类_回测引擎:
         """
         return self.引擎类型
 
-    def 获取最小价位(self, 策略: 类_CTA策略模板) -> float:
+    def 获取最小价格变动单位(self, 策略: 类_CTA策略模板) -> float:
         """
         返回合约最小价位
         """

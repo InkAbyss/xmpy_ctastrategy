@@ -4,7 +4,7 @@ from typing import Any, Callable
 
 from xmpy.包_交易核心.模块_常数 import 类_周期,类_方向,类_开平
 from xmpy.包_交易核心.模块_对象 import 类_K线数据,类_行情数据,类_订单数据,类_成交数据
-from xmpy.包_交易核心.模块_工具 import 虚拟方法
+from xmpy.包_交易核心.模块_工具 import 虚拟方法,合约_交易所转英文
 
 from .模块_基础 import 类_停止单, 类_引擎类型
 
@@ -257,9 +257,9 @@ class 类_CTA策略模板(ABC):
         if self.运行中:
             self.CTA引擎.撤销全部订单(self)
 
-    def 记录日志(self, 内容: str) -> None:
+    def 记录日志(self, 内容: str, 日志级别: int = 20) -> None:
         """记录策略日志"""
-        self.CTA引擎.记录日志(内容, self)
+        self.CTA引擎.记录日志(内容, self, 日志级别 = 日志级别)
 
     def 获取引擎类型(self) -> 类_引擎类型:
         """获取引擎类型"""
@@ -267,7 +267,7 @@ class 类_CTA策略模板(ABC):
 
     def 获取最小价位(self) -> float:
         """获取合约最小价格变动单位"""
-        return self.CTA引擎.获取最小价位(self)
+        return self.CTA引擎.获取最小价格变动单位(self)
 
     def 获取合约乘数(self) -> int:
         """获取合约乘数"""
@@ -316,6 +316,21 @@ class 类_CTA策略模板(ABC):
         """同步策略数据到存储"""
         if self.运行中:
             self.CTA引擎.同步策略数据(self)
+
+    # ----------------- 新增 -------------------------
+    def 获取账户详情(self, 账户标识) -> None:
+        return self.CTA引擎.获取账户详情(账户标识)
+    
+    def 获取所有账户(self) -> None:
+        return self.CTA引擎.获取所有账户()
+
+    def 获取持仓详情(self, 多空) -> None:
+        持仓标识 = f'CTP.{合约_交易所转英文(self.合约_交易所)}.{多空}'
+        return self.CTA引擎.获取持仓详情(持仓标识)
+
+    def 获取所有持仓(self) -> None:
+        return self.CTA引擎.获取所有持仓()
+    # ----------------- 新增 -------------------------
 
 class 类_CTA信号(ABC):
     """信号基类"""
